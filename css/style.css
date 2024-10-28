@@ -997,7 +997,6 @@ a:focus {
     border-color: #EF233C;
 }
 
-
 /*******************************/
 /********* Banner CSS **********/
 /*******************************/
@@ -1019,26 +1018,26 @@ a:focus {
 }
 
 .banner .section-header p {
-    color: #414141;
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
     background: transparent;
-}
-
-.banner .section-header p::after {
-    display: none;
 }
 
 .banner .section-header h2 {
     color: #ffffff;
+    font-size: 32px;
 }
 
 .banner .section-header h2 span {
-    color: #414141;
+    color: black; /* Highlight color */
     font-size: 50px;
 }
 
 .banner .banner-text p {
     font-size: 18px;
     color: #ffffff;
+    margin-bottom: 10px;
 }
 
 .banner .banner-text .btn {
@@ -1057,7 +1056,7 @@ a:focus {
 
 
 /*******************************/
-/********* Pricing CSS *********/
+/********* client CSS *********/
 /*******************************/
 .price {
     position: relative;
@@ -1675,190 +1674,4 @@ a:focus {
         line-height: 16px;
         padding: 0 5px;
     }
-}
-
-/*--------------------------------------------------------------
-# Clients Section
---------------------------------------------------------------*/
-:root {
-    --default-color: #333;
-    --accent-color: #e64e3e;
-}
-
-/* Section Title Styling */
-#clients .section-title {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-#clients .section-title h2 {
-    font-size: 28px;
-    font-weight: bold;
-    color: var(--default-color);
-    position: relative;
-    display: inline-block;
-    padding-bottom: 10px;
-    margin-bottom: 0;
-}
-
-#clients .section-title h2:after {
-    content: "";
-    width: 60px;
-    height: 2px;
-    background-color: var(--accent-color);
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-#clients .section-title p {
-    max-width: 600px;
-    margin: 0 auto;
-    color: #555;
-    font-size: 16px;
-    line-height: 1.6;
-}
-
-/* Swiper Container */
-.clients-swiper-container {
-    padding: 20px 0;
-    position: relative;
-}
-
-/* Swiper Slide Styling */
-.swiper-wrapper {
-    display: flex;
-    align-items: center;
-}
-
-.swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0; /* Initial opacity for animation */
-    animation: fadeIn 0.8s ease forwards;
-}
-
-.client-img {
-    width: 270px;
-    height: auto;
-    opacity: 0.6;
-    transition: 0.3s ease;
-    filter: grayscale(100%);
-}
-
-.client-img:hover {
-    filter: grayscale(0%);
-    opacity: 1;
-}
-
-/* Swiper Pagination Styling */
-.swiper-pagination {
-    position: absolute;
-    bottom: 10px;
-    width: 100%;
-    text-align: center;
-}
-
-.swiper-pagination .swiper-pagination-bullet {
-    background-color: var(--accent-color);
-    opacity: 0.6;
-    transition: opacity 0.3s;
-}
-
-.swiper-pagination .swiper-pagination-bullet-active {
-    opacity: 1;
-}
-
-/* Fade-in Animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}/*--------------------------------------------------------------
-# Clients Section
---------------------------------------------------------------*/
-.clients .swiper-slide {
-    display: flex; /* Center images in the slide */
-    justify-content: center; /* Center images */
-    align-items: center; /* Center images */
-    height: 150px; /* Set a fixed height for consistency */
-    margin: 0 15px; /* Add horizontal margin between slides */
-}
-
-.clients .swiper-slide img {
-    width: 200px; /* Adjust width for larger images */
-    padding: 50px;
-    max-width: 800px; /* Set a max-width for larger screens */
-    height: auto; /* Maintain aspect ratio */
-    opacity: 0.8; /* Slightly increase opacity for better visibility */
-    transition: opacity 0.3s, filter 0.3s;
-    filter: grayscale(100%);
-}
-
-.clients .swiper-slide img:hover {
-    filter: none;
-    opacity: 1;
-}
-
-.clients .swiper-wrapper {
-    height: auto;
-}
-
-.clients .swiper-pagination {
-    margin-top: 20px;
-    position: relative;
-}
-
-.clients .swiper-pagination .swiper-pagination-bullet {
-    width: 12px;
-    height: 12px;
-    opacity: 1;
-    background-color: color-mix(in srgb, var(--default-color), transparent 80%);
-}
-
-.clients .swiper-pagination .swiper-pagination .bullet-active {
-    background-color: var(--accent-color);
-}
-/* Popup Modal Styles */
-.popup-modal {
-    display: none; /* Hidden by default */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; /* Added to stack image and description vertically */
-}
-
-.popup-modal img {
-    max-width: 90%;
-    max-height: 90%;
-}
-
-.popup-description {
-    color: white; /* Text color */
-    margin-top: 10px; /* Spacing between image and description */
-    text-align: center; /* Center the text */
-    font-size: 18px; /* Font size for description */
-}
-
-.close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    color: white;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
 }

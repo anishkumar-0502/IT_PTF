@@ -11,10 +11,8 @@
     };
     loader();
     
-    
     // Initiate the wowjs
     new WOW().init();
-    
     
     // Back to top button
     $(window).scroll(function () {
@@ -29,7 +27,6 @@
         return false;
     });
     
-    
     // Sticky Navbar
     $(window).scroll(function () {
         if ($(this).scrollTop() > 0) {
@@ -38,7 +35,6 @@
             $('.navbar').removeClass('nav-sticky');
         }
     });
-    
     
     // Smooth scrolling on the navbar links
     $(".navbar-nav a").on('click', function (event) {
@@ -54,56 +50,80 @@
                 $(this).closest('a').addClass('active');
             }
         }
-    });
+    });// Function to calculate dynamic slidesPerView and spaceBetween
+    function getSwiperConfig() {
+        const containerWidth = document.querySelector('.swiper').clientWidth; // Get the width of the Swiper container
+        let slidesPerView = 2; // Default number of slides
+        let spaceBetween = 30; // Default space between slides
     
+        if (containerWidth < 480) {
+            slidesPerView = 2;
+            spaceBetween = 20; // Space for small screens
+        } else if (containerWidth < 640) {
+            slidesPerView = 3;
+            spaceBetween = 30; // Space for medium screens
+        } else if (containerWidth < 992) {
+            slidesPerView = 4;
+            spaceBetween = 40; // Space for large screens
+        } else {
+            slidesPerView = 6;
+            spaceBetween = 50; // Space for extra large screens
+        }
     
-    // Typed Initiate
-    if ($('.hero .hero-text h2').length == 1) {
-        var typed_strings = $('.hero .hero-text .typed-text').text();
-        var typed = new Typed('.hero .hero-text h2', {
-            strings: typed_strings.split(', '),
-            typeSpeed: 100,
-            backSpeed: 20,
-            smartBackspace: false,
-            loop: true
-        });
-    }
-    
-    
-    // Skills
-    $('.skills').waypoint(function () {
-        $('.progress .progress-bar').each(function () {
-            $(this).css("width", $(this).attr("aria-valuenow") + '%');
-        });
-    }, {offset: '80%'});
-
-
-    // Testimonials carousel
-    $(".testimonials-carousel").owlCarousel({
-        center: true,
-        autoplay: true,
-        dots: true,
+        return { slidesPerView, spaceBetween };
+    }// Clients Swiper Initialization
+document.addEventListener("DOMContentLoaded", function () {
+    const swiper = new Swiper(".swiper", {
         loop: true,
-        responsive: {
-            0:{
-                items:1
-            }
+        speed: 600,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+        slidesPerView: 6, // Adjust according to your design
+        spaceBetween: 20,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+
+    // Popup Functionality
+    const popupModal = document.getElementById("popupModal");
+    const popupImage = document.getElementById("popupImage");
+    const popupDescription = document.getElementById("popupDescription"); // New description element
+    const closeBtn = document.querySelector(".close");
+
+    // Add click event listener to each client image
+    const clientImages = document.querySelectorAll(".client-img");
+    clientImages.forEach(img => {
+        img.addEventListener("click", function() {
+            const largeImgSrc = this.getAttribute("data-popup-img");
+            const description = this.getAttribute("data-popup-description"); // Get the description
+            popupImage.src = largeImgSrc; // Set the image source for the popup
+            popupDescription.textContent = description; // Set the description text
+            popupModal.style.display = "flex"; // Show the modal
+        });
+    });
+
+    // Close the popup when the close button is clicked
+    closeBtn.addEventListener("click", function() {
+        popupModal.style.display = "none"; // Hide the modal
+    });
+
+    // Close the popup when clicking outside the image
+    popupModal.addEventListener("click", function(e) {
+        if (e.target === popupModal) {
+            popupModal.style.display = "none"; // Hide the modal
         }
     });
-    
-    
-    
-    // Portfolio filter
-    var portfolioIsotope = $('.portfolio-container').isotope({
-        itemSelector: '.portfolio-item',
-        layoutMode: 'fitRows'
-    });
+});
 
-    $('#portfolio-filter li').on('click', function () {
-        $("#portfolio-filter li").removeClass('filter-active');
-        $(this).addClass('filter-active');
-        portfolioIsotope.isotope({filter: $(this).data('filter')});
-    });
     
+
+
 })(jQuery);
-

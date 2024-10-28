@@ -475,7 +475,6 @@
         <div class="price-item">
             <div class="price-header">
             <div class="price-prices">
-                <h2 style="color: red">Renesas</h2>
                 <img
                 src="img/company/Renesas.svg"
                 alt="Renesas Logo"
@@ -494,7 +493,7 @@
                 </ul>
             </div>
             </div>
-            <div class="price-footer ">
+            <div class="price-footer mt-1">
             <div class="price-action">
                 <a
                 class="btn"
@@ -510,7 +509,6 @@
         <div class="price-item">
             <div class="price-header">
             <div class="price-prices">
-                <h2 style="color: red">Inglo</h2>
                 <img
                 src="img/company/Inglo.png"
                 alt="Inglo Logo"
@@ -541,7 +539,6 @@
         <div class="price-item">
             <div class="price-header">
             <div class="price-prices">
-                <h2 style="color: red">Spark Minda</h2>
                 <img
                 src="img/company/sparkminda.png"
                 alt="Spark Minda Logo"
@@ -572,7 +569,6 @@
         <div class="price-item">
             <div class="price-header">
             <div class="price-prices">
-                <h2 style="color: red">Sensedge</h2>
                 <img
                 src="img/company/sensedge.png"
                 alt="Sensedge Logo"
@@ -606,11 +602,24 @@
 <!-- Clients Section End -->
 
 <style>
-    /* Client Logo Styling */
+.client-logo {
+    width: 100%; /* Makes images responsive */
+    height: auto;
+    max-width: 200px; /* Adjust max width as needed */
+    margin: 0 auto;
+    display: block;
+}
+
+/* Additional mobile-specific styles */
+@media only screen and (max-width: 768px) {
     .client-logo {
-    max-width: 100px; /* Adjust size as needed */
-    margin-top: 10px;
+        max-width: 150px; /* Adjust size for mobile */
     }
+    .price-item {
+        margin-bottom: 20px;
+    }
+}
+
 </style>
 
 <!-- Testimonial Start -->
